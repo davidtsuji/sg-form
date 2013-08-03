@@ -1,0 +1,150 @@
+@import "animate.less";
+
+html > body {
+
+	@validator-pristine-background-color: #ccc;
+	@validator-dirty-background-color: #e74c3c;
+	@validator-valid-background-color: #2ecc71;
+	@validator-message-dimensions: 10px;
+	@bootstrap-input-margin-bottom: 10px;
+
+	form {
+
+		&.ng-pristine {
+
+			.form-field-required {
+
+				>aside {
+
+					background-color: @validator-pristine-background-color;
+					opacity: 0;
+
+				}
+
+			}
+
+		}
+
+		&.form-horizontal {
+
+			.form-field-required {
+
+				>aside {
+
+					margin-top: -((@validator-message-dimensions + @validator-message-dimensions / 2) / 2);
+
+				}
+
+			}
+
+		}
+
+
+		&.ng-dirty {
+
+			.form-field-required {
+
+				>aside {
+
+					opacity: 1;
+
+				}
+
+			}
+
+		}
+
+		&:hover {
+
+			.form-field-required {
+
+				>aside {
+
+					opacity: 1;
+
+				}
+
+			}
+
+		}
+
+		&.form-horizontal {
+
+			input[type=text] + aside,
+			input[type=email] + aside,
+			input[type=file] + aside,
+			input[type=number] + aside,
+			input[type=password] + aside,
+			input[type=search] + aside,
+			input[type=url] + aside,
+			select + aside,
+			{
+				margin-top: -((@validator-message-dimensions) / 2);
+			}
+
+		}
+
+		.form-field-required {
+
+			position: relative;
+			display: inline-table;
+
+			&.valid {
+
+				&:after, &:before {
+					
+					content: "";
+					display: none;
+
+				}
+
+				>aside {
+
+					background-color: @validator-valid-background-color;
+					opacity: 0;
+
+					-webkit-transition-delay: 500ms;
+					-moz-transition-delay: 500ms;
+					transition-delay: 500ms;
+
+				}
+
+			}
+
+			>aside {
+
+				content: "";
+				position: absolute;
+				top: 50%;
+				right: -(@validator-message-dimensions * 1.5);
+				border-radius: 50px;
+				background-color: @validator-dirty-background-color;
+				width: @validator-message-dimensions;
+				height: @validator-message-dimensions;
+				margin-top: -(@validator-message-dimensions / 2);
+				z-index: 10;
+
+				-webkit-transition: opacity 200ms;
+				-moz-transition: opacity 200ms;
+				transition: opacity 200ms;
+
+			}
+
+			input[type=text] + aside,
+			input[type=email] + aside,
+			input[type=file] + aside,
+			input[type=number] + aside,
+			input[type=password] + aside,
+			input[type=search] + aside,
+			input[type=url] + aside,
+			select + aside,
+			textarea + aside
+			{
+				margin-top: -((@validator-message-dimensions + @bootstrap-input-margin-bottom) / 2);
+			}
+
+		}
+
+	}
+
+}

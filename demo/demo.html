@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" ng-app ng-controller="validationDemo">
+<head>
+
+	<meta charset="UTF-8">
+	<title>Validator</title>
+
+	<link rel="stylesheet" href="../build/build.css">
+	<script src="../build/build.js"></script>
+
+</head>
+<body>
+
+	<div class="container">
+			
+		<form name="demoForm" ng-submit="demoFormSave()" class="" autocomplete="off" novalidate>
+			
+			<fieldset>
+				
+				<legend>Validator Example</legend>
+
+				<div class="control-group">
+					
+					<label class="control-label">name</label>
+
+					<div class="controls">
+						
+						<span class="form-field-required" ng-class="{valid: demoForm.name.$valid}" data-sg-tooltip="should be 'max'" tooltip-width="180">
+							<input type="text" name="name" ng-model="name" ng-pattern="/^max$/" required>
+						</span>
+
+					</div>
+
+				</div>
+
+				<div class="control-group">
+					
+					<label class="control-label">gender</label>
+
+					<div class="controls">
+						
+						<span class="form-field-required" data-sg-tooltip="should be male" ng-class="{valid: gender == 'male'}">
+							<select name="gender" ng-model="gender">
+								<option value="male">male</option>
+								<option value="female">female</option>
+							</select>
+							<aside></aside>
+						</span>
+
+					</div>
+
+				</div>
+
+				<div class="control-group">
+					
+					<label class="control-label">nice colors</label>
+
+					<div class="controls">
+
+						<label class="radio">
+							
+							<span class="form-field-required" ng-class="{valid: color == 'black'}" data-sg-tooltip="Should be black">
+								<input type="radio" name="color" ng-model="color" value="black"> black
+							</span>
+						
+						</label>
+
+						<label class="radio">
+							
+							<input type="radio" name="color" ng-model="color" value="white"> white
+						
+						</label>
+
+					</div>
+
+				</div>
+
+				<div class="control-group">
+					
+					<label class="control-label">message</label>
+
+					<div class="controls">
+						
+						<span class="form-field-required" data-sg-tooltip="required" ng-class="{valid: demoForm.message.$valid}">
+							<textarea name="message" ng-model="message" required></textarea>
+							<aside></aside>
+						</span>
+
+					</div>
+
+				</div>
+
+				<div class="controls">
+					
+					<button class="btn">submit</button>
+
+				</div>
+
+			</fieldset>
+
+		</form>
+
+	</div>
+
+	<script>
+
+		require('angular');
+
+		var form = require('sg-form')
+		  , notify = require('sg-notify')
+
+		function validationDemo($scope) {
+
+			$scope.demoFormSave = function(){
+
+				var invalid = form(document.querySelector('form[name=demoForm]')).invalid()
+
+				invalid
+					? notify.error('form is invalid')
+					: notify.success('form is valid')
+
+			}
+
+		}
+
+	</script>
+	
+</body>
+</html>

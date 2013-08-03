@@ -1,0 +1,166 @@
+.animated {
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+}
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -ms-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+}
+@-webkit-keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translateX(10px);
+  }
+}
+@-moz-keyframes shake {
+  0%,
+  100% {
+    -moz-transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -moz-transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -moz-transform: translateX(10px);
+  }
+}
+@-o-keyframes shake {
+  0%,
+  100% {
+    -o-transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -o-transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    -o-transform: translateX(10px);
+  }
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+.shake {
+  -webkit-animation-name: shake;
+  -moz-animation-name: shake;
+  -o-animation-name: shake;
+  animation-name: shake;
+}
+html > body form.ng-pristine .form-field-required > aside {
+  background-color: #cccccc;
+  opacity: 0;
+}
+html > body form.form-horizontal .form-field-required > aside {
+  margin-top: -7.5px;
+}
+html > body form.ng-dirty .form-field-required > aside {
+  opacity: 1;
+}
+html > body form:hover .form-field-required > aside {
+  opacity: 1;
+}
+html > body form.form-horizontal input[type=text] + aside,
+html > body form.form-horizontal input[type=email] + aside,
+html > body form.form-horizontal input[type=file] + aside,
+html > body form.form-horizontal input[type=number] + aside,
+html > body form.form-horizontal input[type=password] + aside,
+html > body form.form-horizontal input[type=search] + aside,
+html > body form.form-horizontal input[type=url] + aside,
+html > body form.form-horizontal select + aside {
+  margin-top: -5px;
+}
+html > body form .form-field-required {
+  position: relative;
+  display: inline-table;
+}
+html > body form .form-field-required.valid:after,
+html > body form .form-field-required.valid:before {
+  content: "";
+  display: none;
+}
+html > body form .form-field-required.valid > aside {
+  background-color: #2ecc71;
+  opacity: 0;
+  -webkit-transition-delay: 500ms;
+  -moz-transition-delay: 500ms;
+  transition-delay: 500ms;
+}
+html > body form .form-field-required > aside {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  border-radius: 50px;
+  background-color: #e74c3c;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  z-index: 10;
+  -webkit-transition: opacity 200ms;
+  -moz-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+html > body form .form-field-required input[type=text] + aside,
+html > body form .form-field-required input[type=email] + aside,
+html > body form .form-field-required input[type=file] + aside,
+html > body form .form-field-required input[type=number] + aside,
+html > body form .form-field-required input[type=password] + aside,
+html > body form .form-field-required input[type=search] + aside,
+html > body form .form-field-required input[type=url] + aside,
+html > body form .form-field-required select + aside,
+html > body form .form-field-required textarea + aside {
+  margin-top: -10px;
+}
