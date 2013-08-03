@@ -5,100 +5,347 @@
 	<meta charset="UTF-8">
 	<title>Validator</title>
 
-	<link rel="stylesheet" href="../build/build.css">
-	<script src="../build/build.js"></script>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="build.css">
+	<script src="build.js"></script>
 
 </head>
 <body>
 
 	<div class="container">
+
+		<div class="page-header">
+			<h1>Form Validation</h1>
+		</div>
 			
-		<form name="demoForm" ng-submit="demoFormSave()" class="" autocomplete="off" novalidate>
-			
-			<fieldset>
+		<form name="inlineForm" ng-submit="inlineFormSubmit()" class="form-inline" autocomplete="off" novalidate>
+
+			<div class="form-group">
 				
-				<legend>Validator Example</legend>
+				<legend>Inline Form</legend>
 
-				<div class="control-group">
+				<span class="required" ng-class="{valid: inlineForm.name.$valid}">
 					
-					<label class="control-label">name</label>
+					<input type="text" name="name" class="form-control" style="width: 180px" ng-model="name" required>
 
-					<div class="controls">
-						
-						<span class="form-field-required" ng-class="{valid: demoForm.name.$valid}" data-sg-tooltip="should be 'max'" tooltip-width="180">
-							<input type="text" name="name" ng-model="name" ng-pattern="/^max$/" required>
-						</span>
+				</span>
 
-					</div>
+				<span class="required" ng-class="{valid: inlineForm.remember.$valid}">
+					
+					<select name="remember" class="form-control" style="width: 180px" ng-model="remember" required>
+						<option value="yes">yes</option>
+						<option value="no">no</option>
+					</select>
+					<aside class="ng-invalid"></aside>
+
+				</span>
+					
+				<div class="checkbox" style="margin-right: 30px; margin-left: 15px">
+					
+					<label class="control-label">
+
+						<div class="required" ng-class="{valid: inlineForm.name.$valid}">
+							<input type="checkbox" ng-model="bam" required> bam
+							<aside class="ng-invalid"></aside>
+						</div>
+
+					</label>
 
 				</div>
 
-				<div class="control-group">
-					
-					<label class="control-label">gender</label>
+				<button type="submit" class="btn btn-default">go</button>
 
-					<div class="controls">
-						
-						<span class="form-field-required" data-sg-tooltip="should be male" ng-class="{valid: gender == 'male'}">
-							<select name="gender" ng-model="gender">
-								<option value="male">male</option>
-								<option value="female">female</option>
-							</select>
-							<aside></aside>
-						</span>
-
-					</div>
-
-				</div>
-
-				<div class="control-group">
-					
-					<label class="control-label">nice colors</label>
-
-					<div class="controls">
-
-						<label class="radio">
-							
-							<span class="form-field-required" ng-class="{valid: color == 'black'}" data-sg-tooltip="Should be black">
-								<input type="radio" name="color" ng-model="color" value="black"> black
-							</span>
-						
-						</label>
-
-						<label class="radio">
-							
-							<input type="radio" name="color" ng-model="color" value="white"> white
-						
-						</label>
-
-					</div>
-
-				</div>
-
-				<div class="control-group">
-					
-					<label class="control-label">message</label>
-
-					<div class="controls">
-						
-						<span class="form-field-required" data-sg-tooltip="required" ng-class="{valid: demoForm.message.$valid}">
-							<textarea name="message" ng-model="message" required></textarea>
-							<aside></aside>
-						</span>
-
-					</div>
-
-				</div>
-
-				<div class="controls">
-					
-					<button class="btn">submit</button>
-
-				</div>
-
-			</fieldset>
+			</div>
 
 		</form>
+
+		<div class="row">
+			
+			<div class="col-lg-6">
+
+				<form name="verticalForm" ng-submit="verticalFormSubmit()" autocomplete="off" novalidate>
+						
+					<fieldset>
+						
+						<legend>Vertical Form</legend>
+
+						<div class="form-group">
+							
+							<label class="control-label">name</label>
+
+							<span class="required">
+								
+								<input type="text" name="name" class="form-control" data-sg-tooltip="should be 'max'" ng-class="{valid: demoForm.name.$valid}" ng-model="name" ng-pattern="/^max$/" required>
+								<aside class="ng-invalid"></aside>
+
+							</span>
+
+						</div>
+
+						<div class="form-group">
+							
+							<label class="control-label">gender</label>
+
+							<span class="required">
+								
+								<select name="gender" class="form-control" ng-model="gender" required>
+									<option value="male">male</option>
+									<option value="female">female</option>
+								</select>
+								<aside class="ng-invalid"></aside>
+								
+							</span>
+
+						</div>
+
+						<div class="form-group">
+
+							<label class="control-label">nice colors</label>
+
+							<div class="radio">
+								
+								<label class="control-label">
+
+									<span class="required">
+										
+										<input type="radio" name="color" ng-model="color" value="black" required> black is black
+										<aside class="ng-invalid"></aside>
+										
+									</span>
+
+								</label>
+
+							</div>
+
+							<div class="radio">
+
+								<label class="control-label">
+
+									<span class="required">
+
+										<input type="radio" name="color" ng-model="color" value="white" required> white
+										<aside class="ng-invalid"></aside>
+										
+									</span>
+								</label>
+								
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							
+							<label class="control-label">message</label>
+
+							<span class="required">
+								
+								<textarea name="message" ng-model="message" class="form-control" required></textarea>
+								<aside class="ng-invalid"></aside>
+
+							</span>
+
+						</div>
+
+						<div class="form-group">
+							
+							<button class="btn btn-default">submit</button>
+
+						</div>
+
+					</fieldset>
+
+				</form>
+
+			</div>
+
+			<div class="col-lg-6">
+
+				<form name="horizontalForm" ng-submit="horizontalFormSubmit()" class="form-horizontal" autocomplete="off" novalidate>
+
+					<fieldset>
+						
+						<legend>Horizontal Form</legend>
+
+						<div class="form-group">
+							
+							<label class="col-lg-3 control-label">name</label>
+
+							<div class="col-lg-9">
+
+								<span class="required">
+									
+									<input type="text" name="name" class="form-control" data-sg-tooltip="should be 'max'" ng-class="{valid: demoForm.name.$valid}" ng-model="name" ng-pattern="/^max$/" required>
+									<aside class="ng-invalid"></aside>
+								
+								</span>
+
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							
+							<label class="col-lg-3 control-label">gender</label>
+								
+							<div class="col-lg-9">
+
+								<span class="required">
+
+									<select name="gender" class="form-control" ng-model="gender" required>
+										<option value="male">male</option>
+										<option value="female">female</option>
+									</select>
+									<aside class="ng-invalid"></aside>
+
+								</span>
+								
+							</div>
+
+						</div>
+
+						<div class="form-group">
+
+							<label class="col-lg-3 control-label">nice colors</label>
+
+							<div class="col-lg-9">
+
+								<div class="checkbox">
+									
+									<label>
+
+										<div class="required">
+
+											<input type="checkbox" name="color" ng-model="color" value="black" required> black
+											<aside class="ng-invalid"></aside>
+											
+										</div>
+									</label>
+								
+								</div>
+
+								<div class="checkbox">
+									
+									<label>
+
+										<div class="required">
+
+											<input type="checkbox" name="color" ng-model="color" value="white" required> white
+											<aside class="ng-invalid"></aside>
+											
+										</div>
+									</label>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							
+							<label class="col-lg-3 control-label">message</label>
+
+							<div class="col-lg-9">
+
+								<div class="required">
+									
+									<textarea name="message" ng-model="message" class="form-control" required></textarea>
+									<aside class="ng-invalid"></aside>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="form-group">
+
+							<div class="col-lg-9 col-offset-3">
+								
+								<button class="btn btn-default">submit</button>
+							
+							</div>
+
+						</div>
+
+					</fieldset>
+
+				</form>
+
+			</div>
+		
+		</div>
+
+		<form name="colForm" ng-submit="colFormSubmit()" novalidate>
+
+			<legend>Column Form</legend>
+		
+			<div class="row" style="margin-bottom: 15px">
+				
+				<div class="col-lg-2">
+
+					<label class="control-label">col-lg-2</label>
+					
+					<div class="required">
+						
+						<input type="text" class="form-control" ng-model="colLg2" required>
+						<aside class="ng-invalid"></aside>
+
+					</div>
+
+				</div>
+			
+				
+				<div class="col-lg-6">
+
+					<label class="control-label">col-lg-6</label>
+					
+					<div class="required">
+						
+						<input type="text" class="form-control" ng-model="colLg6" required>
+						<aside class="ng-invalid"></aside>
+
+					</div>
+
+				</div>
+				
+				<div class="col-lg-4">
+
+					<label class="control-label">col-lg-4</label>
+					
+					<div class="required">
+						
+						<input type="text" class="form-control" ng-model="colLg4" required>
+						<aside class="ng-invalid"></aside>
+
+					</div>
+
+				</div>
+			
+			</div>
+
+			<div class="row" style="margin-bottom: 15px">
+				
+				<div class="col-lg-12">
+
+					<label class="control-label">col-lg-12</label>
+					
+					<div class="required">
+						
+						<input type="text" class="form-control" ng-model="colLg12" required>
+						<aside class="ng-invalid"></aside>
+
+					</div>
+
+				</div>
+			
+			</div>
+
+			<button class="btn btn-default">submit</button>
+		
+		</form>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, minus, id eos unde quae reprehenderit corporis facere libero! Est, maiores culpa architecto doloribus accusamus reiciendis quisquam rem. Id, consequuntur, eveniet?</p>
 
 	</div>
 
@@ -111,9 +358,39 @@
 
 		function validationDemo($scope) {
 
-			$scope.demoFormSave = function(){
+			$scope.inlineFormSubmit = function(){
 
-				var invalid = form(document.querySelector('form[name=demoForm]')).invalid()
+				var invalid = form(document.querySelector('form[name=inlineForm]')).invalid()
+
+				invalid
+					? notify.error('form is invalid')
+					: notify.success('form is valid')
+
+			}
+
+			$scope.verticalFormSubmit = function(){
+
+				var invalid = form(document.querySelector('form[name=verticalForm]')).invalid()
+
+				invalid
+					? notify.error('form is invalid')
+					: notify.success('form is valid')
+
+			}
+
+			$scope.horizontalFormSubmit = function(){
+
+				var invalid = form(document.querySelector('form[name=horizontalForm]')).invalid()
+
+				invalid
+					? notify.error('form is invalid')
+					: notify.success('form is valid')
+
+			}
+
+			$scope.colFormSubmit = function(){
+
+				var invalid = form(document.querySelector('form[name=colForm]')).invalid()
 
 				invalid
 					? notify.error('form is invalid')

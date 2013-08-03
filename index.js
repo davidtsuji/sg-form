@@ -10,7 +10,7 @@ Form.prototype.constructor = Form;
 Form.prototype.validate = function() {
 	
 	var self = this
-	  , invalidFieldWrapper = self.form.find('.form-field-required:not(.valid)')
+	  , invalidFieldWrapper = self.form.find('.required:not(.valid)')
 	  , firstField
 
 	if (invalidFieldWrapper.els.length == 0) return true;
@@ -24,9 +24,9 @@ Form.prototype.validate = function() {
 	invalidFieldWrapper.forEach(function(_wrapper){
 
 		var $wrapper = dom(_wrapper)
-		  , $aside = $wrapper.find('aside')
+		  , $aside = $wrapper.find('aside.ng-invalid')
 
-		$aside = $aside.els.length > 0 ? $aside : $wrapper.append('<aside>');
+		$aside = $aside.els.length > 0 ? $aside : $wrapper.append('<aside class="ng-invalid">');
 
 		$aside.removeClass('shake');
 		_wrapper.offsetWidth; // reflow

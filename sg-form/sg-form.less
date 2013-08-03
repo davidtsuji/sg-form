@@ -2,145 +2,137 @@
 
 html > body {
 
-	@validator-pristine-background-color: #ccc;
-	@validator-dirty-background-color: #e74c3c;
-	@validator-valid-background-color: #2ecc71;
-	@validator-message-dimensions: 10px;
-	@bootstrap-input-margin-bottom: 10px;
+	@invalid-circle-grey-background-color: #ccc;
+	@invalid-circle-red-background-color: #E74C3C;
+	@invalid-circle-green-background-color: #2ecc71;
+	@invalid-circle-dimensions: 10px;
+
+	.required-inline () {
+
+		display: inline-table;
+
+	}
 
 	form {
 
-		&.ng-pristine {
+		&.form-inline {
 
-			.form-field-required {
+			.radio,
+			.checkbox {
 
-				>aside {
+				.required {
 
-					background-color: @validator-pristine-background-color;
-					opacity: 0;
+					input[type=radio],
+					input[type=checkbox] {
+
+						&+ aside.ng-invalid {
+
+							right: -20px;
+
+						}
+
+					}
+
 
 				}
 
 			}
 
-		}
+			.required {
 
-		&.form-horizontal {
+				.required-inline();
 
-			.form-field-required {
+				.form-control,
+				input[type=radio],
+				input[type=checkbox]
+				{
 
-				>aside {
+					&+ aside.ng-invalid {
 
-					margin-top: -((@validator-message-dimensions + @validator-message-dimensions / 2) / 2);
+						right: 10px;
 
-				}
-
-			}
-
-		}
-
-
-		&.ng-dirty {
-
-			.form-field-required {
-
-				>aside {
-
-					opacity: 1;
+					}
 
 				}
 
-			}
+				select.form-control {
 
-		}
+					&+ aside.ng-invalid {
 
-		&:hover {
+						right: 30px;
 
-			.form-field-required {
-
-				>aside {
-
-					opacity: 1;
+					}
 
 				}
-
+				
 			}
 
 		}
 
-		&.form-horizontal {
+		.radio,
+		.checkbox
+		{
+			.required {
 
-			input[type=text] + aside,
-			input[type=email] + aside,
-			input[type=file] + aside,
-			input[type=number] + aside,
-			input[type=password] + aside,
-			input[type=search] + aside,
-			input[type=url] + aside,
-			select + aside,
-			{
-				margin-top: -((@validator-message-dimensions) / 2);
+				.required-inline();
+
 			}
-
 		}
 
-		.form-field-required {
+		.required {
 
 			position: relative;
-			display: inline-table;
+			display: block;
 
 			&.valid {
 
-				&:after, &:before {
-					
-					content: "";
-					display: none;
 
-				}
+				.form-control,
+				input[type=radio],
+				input[type=checkbox]
+				{
+					&+ aside.ng-invalid {
 
-				>aside {
+						background-color: @invalid-circle-green-background-color;
+						opacity: 0;
 
-					background-color: @validator-valid-background-color;
-					opacity: 0;
+						-webkit-transition-delay: 500ms;
+						-moz-transition-delay: 500ms;
+						transition-delay: 500ms;
 
-					-webkit-transition-delay: 500ms;
-					-moz-transition-delay: 500ms;
-					transition-delay: 500ms;
-
+					}
 				}
 
 			}
 
-			>aside {
-
-				content: "";
-				position: absolute;
-				top: 50%;
-				right: -(@validator-message-dimensions * 1.5);
-				border-radius: 50px;
-				background-color: @validator-dirty-background-color;
-				width: @validator-message-dimensions;
-				height: @validator-message-dimensions;
-				margin-top: -(@validator-message-dimensions / 2);
-				z-index: 10;
-
-				-webkit-transition: opacity 200ms;
-				-moz-transition: opacity 200ms;
-				transition: opacity 200ms;
-
-			}
-
-			input[type=text] + aside,
-			input[type=email] + aside,
-			input[type=file] + aside,
-			input[type=number] + aside,
-			input[type=password] + aside,
-			input[type=search] + aside,
-			input[type=url] + aside,
-			select + aside,
-			textarea + aside
+			.form-control,
+			input[type=radio],
+			input[type=checkbox]
 			{
-				margin-top: -((@validator-message-dimensions + @bootstrap-input-margin-bottom) / 2);
+
+				&+ aside.ng-invalid {
+
+					margin: 0;
+					padding: 0;
+					content: "";
+					position: absolute;
+					top: 50%;
+					right: -15px;
+					width: @invalid-circle-dimensions;
+					height: @invalid-circle-dimensions;
+					border-radius: 100px;
+					background-color: @invalid-circle-red-background-color;
+					pointer-events: none;
+					margin-top: -(@invalid-circle-dimensions / 2);
+					opacity: 1;
+					z-index: 10;
+
+					-webkit-transition: opacity 200ms;
+					-moz-transition: opacity 200ms;
+					transition: opacity 200ms;
+
+				}
+
 			}
 
 		}

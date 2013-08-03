@@ -99,68 +99,58 @@
   -o-animation-name: shake;
   animation-name: shake;
 }
-html > body form.ng-pristine .form-field-required > aside {
-  background-color: #cccccc;
-  opacity: 0;
+html > body form.form-inline .radio .required input[type=radio] + aside.ng-invalid,
+html > body form.form-inline .checkbox .required input[type=radio] + aside.ng-invalid,
+html > body form.form-inline .radio .required input[type=checkbox] + aside.ng-invalid,
+html > body form.form-inline .checkbox .required input[type=checkbox] + aside.ng-invalid {
+  right: -20px;
 }
-html > body form.form-horizontal .form-field-required > aside {
-  margin-top: -7.5px;
-}
-html > body form.ng-dirty .form-field-required > aside {
-  opacity: 1;
-}
-html > body form:hover .form-field-required > aside {
-  opacity: 1;
-}
-html > body form.form-horizontal input[type=text] + aside,
-html > body form.form-horizontal input[type=email] + aside,
-html > body form.form-horizontal input[type=file] + aside,
-html > body form.form-horizontal input[type=number] + aside,
-html > body form.form-horizontal input[type=password] + aside,
-html > body form.form-horizontal input[type=search] + aside,
-html > body form.form-horizontal input[type=url] + aside,
-html > body form.form-horizontal select + aside {
-  margin-top: -5px;
-}
-html > body form .form-field-required {
-  position: relative;
+html > body form.form-inline .required {
   display: inline-table;
 }
-html > body form .form-field-required.valid:after,
-html > body form .form-field-required.valid:before {
-  content: "";
-  display: none;
+html > body form.form-inline .required .form-control + aside.ng-invalid,
+html > body form.form-inline .required input[type=radio] + aside.ng-invalid,
+html > body form.form-inline .required input[type=checkbox] + aside.ng-invalid {
+  right: 10px;
 }
-html > body form .form-field-required.valid > aside {
+html > body form.form-inline .required select.form-control + aside.ng-invalid {
+  right: 30px;
+}
+html > body form .radio .required,
+html > body form .checkbox .required {
+  display: inline-table;
+}
+html > body form .required {
+  position: relative;
+  display: block;
+}
+html > body form .required.valid .form-control + aside.ng-invalid,
+html > body form .required.valid input[type=radio] + aside.ng-invalid,
+html > body form .required.valid input[type=checkbox] + aside.ng-invalid {
   background-color: #2ecc71;
   opacity: 0;
   -webkit-transition-delay: 500ms;
   -moz-transition-delay: 500ms;
   transition-delay: 500ms;
 }
-html > body form .form-field-required > aside {
+html > body form .required .form-control + aside.ng-invalid,
+html > body form .required input[type=radio] + aside.ng-invalid,
+html > body form .required input[type=checkbox] + aside.ng-invalid {
+  margin: 0;
+  padding: 0;
   content: "";
   position: absolute;
   top: 50%;
   right: -15px;
-  border-radius: 50px;
-  background-color: #e74c3c;
   width: 10px;
   height: 10px;
+  border-radius: 100px;
+  background-color: #e74c3c;
+  pointer-events: none;
   margin-top: -5px;
+  opacity: 1;
   z-index: 10;
   -webkit-transition: opacity 200ms;
   -moz-transition: opacity 200ms;
   transition: opacity 200ms;
-}
-html > body form .form-field-required input[type=text] + aside,
-html > body form .form-field-required input[type=email] + aside,
-html > body form .form-field-required input[type=file] + aside,
-html > body form .form-field-required input[type=number] + aside,
-html > body form .form-field-required input[type=password] + aside,
-html > body form .form-field-required input[type=search] + aside,
-html > body form .form-field-required input[type=url] + aside,
-html > body form .form-field-required select + aside,
-html > body form .form-field-required textarea + aside {
-  margin-top: -10px;
 }

@@ -4,10 +4,12 @@ build:
 	@component build --dev
 
 install:
+	@npm install > /dev/null
 	@component install --dev > /dev/null
 
 demo:
 	@make build
-	@open demo/demo.html
+	@open http://localhost:5000/demo.html
+	@node demo/server.js
 
 .PHONY: build install demo

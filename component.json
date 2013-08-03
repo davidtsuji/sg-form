@@ -18,8 +18,7 @@
 	"development":{
 		"component/type":"*",
 		"davidtsuji/sg-notify": "*",
-		"davidtsuji/angular.js": "*",
-		"davidtsuji/bootstrap": "*"
+		"davidtsuji/angular.js": "*"
 	},
 	 "license": "MIT"
 }
