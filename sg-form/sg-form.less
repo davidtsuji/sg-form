@@ -2,7 +2,7 @@
 
 html > body {
 
-	@invalid-circle-grey-background-color: #ccc;
+	@invalid-circle-gray-background-color: #ccc;
 	@invalid-circle-red-background-color: #E74C3C;
 	@invalid-circle-green-background-color: #2ecc71;
 	@invalid-circle-dimensions: 10px;
@@ -14,6 +14,49 @@ html > body {
 	}
 
 	form {
+
+		&:hover {
+
+			.required {
+
+				.form-control,
+				input[type=radio],
+				input[type=checkbox]
+				{
+
+					&+ aside.ng-invalid {
+
+						opacity: 1;
+
+					}
+
+				}
+
+			}
+
+		}
+
+		&.ng-dirty {
+
+			.required {
+
+				.form-control,
+				input[type=radio],
+				input[type=checkbox]
+				{
+
+					&+ aside.ng-invalid {
+
+						background-color: @invalid-circle-red-background-color;
+						opacity: 1;
+
+					}
+
+				}
+
+			}
+
+		}
 
 		&.form-inline {
 
@@ -121,10 +164,10 @@ html > body {
 					width: @invalid-circle-dimensions;
 					height: @invalid-circle-dimensions;
 					border-radius: 100px;
-					background-color: @invalid-circle-red-background-color;
+					background-color: @invalid-circle-gray-background-color;
 					pointer-events: none;
 					margin-top: -(@invalid-circle-dimensions / 2);
-					opacity: 1;
+					opacity: 0;
 					z-index: 10;
 
 					-webkit-transition: opacity 200ms;

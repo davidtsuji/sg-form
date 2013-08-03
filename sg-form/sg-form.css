@@ -99,6 +99,17 @@
   -o-animation-name: shake;
   animation-name: shake;
 }
+html > body form:hover .required .form-control + aside.ng-invalid,
+html > body form:hover .required input[type=radio] + aside.ng-invalid,
+html > body form:hover .required input[type=checkbox] + aside.ng-invalid {
+  opacity: 1;
+}
+html > body form.ng-dirty .required .form-control + aside.ng-invalid,
+html > body form.ng-dirty .required input[type=radio] + aside.ng-invalid,
+html > body form.ng-dirty .required input[type=checkbox] + aside.ng-invalid {
+  background-color: #e74c3c;
+  opacity: 1;
+}
 html > body form.form-inline .radio .required input[type=radio] + aside.ng-invalid,
 html > body form.form-inline .checkbox .required input[type=radio] + aside.ng-invalid,
 html > body form.form-inline .radio .required input[type=checkbox] + aside.ng-invalid,
@@ -145,10 +156,10 @@ html > body form .required input[type=checkbox] + aside.ng-invalid {
   width: 10px;
   height: 10px;
   border-radius: 100px;
-  background-color: #e74c3c;
+  background-color: #cccccc;
   pointer-events: none;
   margin-top: -5px;
-  opacity: 1;
+  opacity: 0;
   z-index: 10;
   -webkit-transition: opacity 200ms;
   -moz-transition: opacity 200ms;
