@@ -6,8 +6,10 @@
 	<title>Validator</title>
 
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="build.css">
-	<script src="build.js"></script>
+	<link rel="stylesheet" href="../build/build.css">
+	<link rel="stylesheet" href="sgForm.css">
+
+	<script src="../build/build.js"></script>
 
 </head>
 <body>
@@ -24,15 +26,15 @@
 				
 				<legend>Inline Form</legend>
 
-				<span class="required" ng-class="{valid: inlineForm.name.$valid}">
+				<span class="required" ng-class="{valid: inlineForm.inlineFormName.$valid}">
 					
-					<input type="text" name="name" class="form-control" style="width: 180px" ng-model="name" required>
+					<input type="text" name="inlineFormName" class="form-control" style="width: 180px" ng-model="inlineFormName" required>
 
 				</span>
 
-				<span class="required" ng-class="{valid: inlineForm.remember.$valid}">
+				<span class="required" ng-class="{valid: inlineFormRemember == 'yes'}">
 					
-					<select name="remember" class="form-control" style="width: 180px" ng-model="remember" required>
+					<select name="inlineFormRemember" class="form-control" style="width: 180px" ng-model="inlineFormRemember" required>
 						<option value="yes">yes</option>
 						<option value="no">no</option>
 					</select>
@@ -44,8 +46,8 @@
 					
 					<label class="control-label">
 
-						<div class="required" ng-class="{valid: inlineForm.name.$valid}">
-							<input type="checkbox" ng-model="bam" required> bam
+						<div class="required" ng-class="{valid: inlineForm.inlineFormBam.$valid}">
+							<input type="checkbox" name="inlineFormBam" ng-model="inlineFormBam" required> bam
 							<aside class="ng-invalid"></aside>
 						</div>
 
@@ -73,9 +75,9 @@
 							
 							<label class="control-label">name</label>
 
-							<span class="required">
+							<span class="required" ng-class="{valid: verticalForm.verticalFormName.$valid}" data-sg-tooltip="should be 'max'">
 								
-								<input type="text" name="name" class="form-control" data-sg-tooltip="should be 'max'" ng-class="{valid: demoForm.name.$valid}" ng-model="name" ng-pattern="/^max$/" required>
+								<input type="text" name="verticalFormName" class="form-control" ng-model="verticalFormName" ng-pattern="/^max$/" required>
 								<aside class="ng-invalid"></aside>
 
 							</span>
@@ -86,9 +88,9 @@
 							
 							<label class="control-label">gender</label>
 
-							<span class="required">
+							<span class="required" ng-class="{valid: verticalForm.verticalFormGender.$valid}" >
 								
-								<select name="gender" class="form-control" ng-model="gender" required>
+								<select name="verticalFormGender" class="form-control" ng-model="verticalForm.gender" required>
 									<option value="male">male</option>
 									<option value="female">female</option>
 								</select>
@@ -105,13 +107,8 @@
 							<div class="radio">
 								
 								<label class="control-label">
-
-									<span class="required">
 										
-										<input type="radio" name="color" ng-model="color" value="black" required> black is black
-										<aside class="ng-invalid"></aside>
-										
-									</span>
+									<input type="radio" name="verticalFormColor" ng-model="verticalFormColor" value="black" required> black is black
 
 								</label>
 
@@ -121,9 +118,9 @@
 
 								<label class="control-label">
 
-									<span class="required">
+									<span class="required" ng-class="{valid: verticalFormColor == 'black'}" data-sg-tooltip="Color&nbsp;must&nbsp;black">
 
-										<input type="radio" name="color" ng-model="color" value="white" required> white
+										<input type="radio" name="verticalFormColor" ng-model="verticalFormColor" value="white" required> white
 										<aside class="ng-invalid"></aside>
 										
 									</span>
@@ -137,9 +134,9 @@
 							
 							<label class="control-label">message</label>
 
-							<span class="required">
+							<span class="required" ng-class="{valid: verticalForm.verticalFormMessage.$valid}">
 								
-								<textarea name="message" ng-model="message" class="form-control" required></textarea>
+								<textarea name="verticalFormMessage" ng-model="message" class="form-control" required></textarea>
 								<aside class="ng-invalid"></aside>
 
 							</span>
@@ -172,9 +169,9 @@
 
 							<div class="col-lg-9">
 
-								<span class="required">
+								<span class="required" ng-class="{valid: horizontalForm.horizontalFormName.$valid}" data-sg-tooltip="should be 'max'">
 									
-									<input type="text" name="name" class="form-control" data-sg-tooltip="should be 'max'" ng-class="{valid: demoForm.name.$valid}" ng-model="name" ng-pattern="/^max$/" required>
+									<input type="text" name="horizontalFormName" class="form-control" ng-model="horizontalFormName" ng-pattern="/^max$/" required>
 									<aside class="ng-invalid"></aside>
 								
 								</span>
@@ -189,9 +186,9 @@
 								
 							<div class="col-lg-9">
 
-								<span class="required">
+								<span class="required" ng-class="{valid: horizontalForm.horizontalFormGender.$valid}">
 
-									<select name="gender" class="form-control" ng-model="gender" required>
+									<select name="horizontalFormGender" class="form-control" ng-model="horizontalFormGender" required>
 										<option value="male">male</option>
 										<option value="female">female</option>
 									</select>
@@ -213,12 +210,8 @@
 									
 									<label>
 
-										<div class="required">
+										<input type="checkbox" name="horizontalFormColorBlack" ng-model="horizontalFormColorBlack" value="black"> black
 
-											<input type="checkbox" name="color" ng-model="color" value="black" required> black
-											<aside class="ng-invalid"></aside>
-											
-										</div>
 									</label>
 								
 								</div>
@@ -227,9 +220,9 @@
 									
 									<label>
 
-										<div class="required">
+										<div class="required" ng-class="{valid: horizontalForm.horizontalFormColorWhite.$valid}">
 
-											<input type="checkbox" name="color" ng-model="color" value="white" required> white
+											<input type="checkbox" name="horizontalFormColorWhite" ng-model="horizontalFormColorWhite" required value="white"> white
 											<aside class="ng-invalid"></aside>
 											
 										</div>
@@ -247,9 +240,9 @@
 
 							<div class="col-lg-9">
 
-								<div class="required">
+								<div class="required" ng-class="{valid: horizontalForm.horizontalFormMessage.$valid}">
 									
-									<textarea name="message" ng-model="message" class="form-control" required></textarea>
+									<textarea name="horizontalFormMessage" ng-model="horizontalFormMessage" class="form-control" required></textarea>
 									<aside class="ng-invalid"></aside>
 
 								</div>
@@ -286,10 +279,10 @@
 
 					<label class="control-label">col-lg-2</label>
 					
-					<div class="required">
+					<div class="required" ng-class="{valid: colForm.colForm2.$valid}">
 						
-						<input type="text" class="form-control" ng-model="colLg2" required>
-						<aside class="ng-invalid"></aside>
+						<input type="text" class="form-control" name="colForm2" ng-model="colForm2" required>
+						<aside class="ng-invalid inside"></aside>
 
 					</div>
 
@@ -300,10 +293,12 @@
 
 					<label class="control-label">col-lg-6</label>
 					
-					<div class="required">
+					<div class="required" ng-class="{valid: colForm.colForm6.$valid}">
 						
-						<input type="text" class="form-control" ng-model="colLg6" required>
-						<aside class="ng-invalid"></aside>
+						<select class="form-control" name="colForm6" ng-model="colForm6" required>
+							<option>bam</option>
+						</select>
+						<aside class="ng-invalid inside"></aside>
 
 					</div>
 
@@ -313,10 +308,10 @@
 
 					<label class="control-label">col-lg-4</label>
 					
-					<div class="required">
+					<div class="required" ng-class="{valid: colForm.colForm4.$valid}">
 						
-						<input type="text" class="form-control" ng-model="colLg4" required>
-						<aside class="ng-invalid"></aside>
+						<input type="text" class="form-control" name="colForm4" ng-model="colForm4" required>
+						<aside class="ng-invalid inside"></aside>
 
 					</div>
 
@@ -330,10 +325,10 @@
 
 					<label class="control-label">col-lg-12</label>
 					
-					<div class="required">
+					<div class="required" ng-class="{valid: colForm.colForm12.$valid}">
 						
-						<input type="text" class="form-control" ng-model="colLg12" required>
-						<aside class="ng-invalid"></aside>
+						<input type="text" class="form-control" name="colForm12" ng-model="colForm12" required>
+						<aside class="ng-invalid inside"></aside>
 
 					</div>
 
@@ -347,58 +342,60 @@
 
 	</div>
 
+	<script src="sgForm.js"></script>
 	<script>
 
 		require('angular');
 
-		var form = require('sg-form')
-		  , notify = require('sg-notify')
+		var notify = require('sg-notify')
 
 		function validationDemo($scope) {
 
 			$scope.inlineFormSubmit = function(){
 
-				var invalid = form(document.querySelector('form[name=inlineForm]')).invalid()
+				var invalid = sgForm(document.querySelector('form[name=inlineForm]')).invalid()
 
 				invalid
-					? notify.error('form is invalid')
-					: notify.success('form is valid')
+					? notify.error('inline form is invalid')
+					: notify.success('inline form is valid')
 
 			}
 
 			$scope.verticalFormSubmit = function(){
 
-				var invalid = form(document.querySelector('form[name=verticalForm]')).invalid()
+				var invalid = sgForm(document.querySelector('form[name=verticalForm]')).invalid()
 
 				invalid
-					? notify.error('form is invalid')
-					: notify.success('form is valid')
+					? notify.error('vertical form is invalid')
+					: notify.success('vertical form is valid')
 
 			}
 
 			$scope.horizontalFormSubmit = function(){
 
-				var invalid = form(document.querySelector('form[name=horizontalForm]')).invalid()
+				var invalid = sgForm(document.querySelector('form[name=horizontalForm]')).invalid()
 
 				invalid
-					? notify.error('form is invalid')
-					: notify.success('form is valid')
+					? notify.error('horizontal form is invalid')
+					: notify.success('horizontal form is valid')
 
 			}
 
 			$scope.colFormSubmit = function(){
 
-				var invalid = form(document.querySelector('form[name=colForm]')).invalid()
+				var invalid = sgForm(document.querySelector('form[name=colForm]')).invalid()
 
 				invalid
-					? notify.error('form is invalid')
-					: notify.success('form is valid')
+					? notify.error('column form is invalid')
+					: notify.success('column form is valid')
 
 			}
 
 		}
 
 	</script>
+
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 	
 </body>
 </html>

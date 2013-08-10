@@ -129,6 +129,18 @@ html > body {
 
 			&.valid {
 
+				&[data-sg-tooltip] {
+
+					&:before {
+						display: none;
+					}
+
+					&:after {
+						content: "";
+						display: none;
+					}
+					
+				}
 
 				.form-control,
 				input[type=radio],
@@ -148,12 +160,32 @@ html > body {
 
 			}
 
+			select.form-control {
+
+				&+ aside.ng-invalid {
+
+					&.inside {
+
+						right: 35px;
+
+					}
+				
+				}
+
+			}
+
 			.form-control,
 			input[type=radio],
 			input[type=checkbox]
 			{
 
 				&+ aside.ng-invalid {
+
+					&.inside {
+
+						right: 15px;
+
+					}
 
 					margin: 0;
 					padding: 0;
