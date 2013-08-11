@@ -1,16 +1,20 @@
+# sg-form
 
-# sg-html-element
-
-  Form validation
+Form validation
 
 ## Installation
 
-    $ component install davidtsuji/sg-form
+```sh
+$ component install davidtsuji/sg-form
+```
 
 ## API
 
-   form($('#myel')).invalid() // returns boolean
+```javascript
+sgForm($('#myel')).invalid() // returns a boolean
+sgForm(document.querySelector('#myel')).invalid() // returns a boolean
+```
 
 ## License
 
-  MIT
+MIT
