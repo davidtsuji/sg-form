@@ -6,80 +6,42 @@ html > body {
 	@invalid-circle-red-background-color: #E74C3C;
 	@invalid-circle-green-background-color: #2ecc71;
 	@invalid-circle-dimensions: 10px;
+	@badge-offset: 20px;
+	@badge-select-offset: 5px;
+	@badge-checkbox-radio-offset: -20px;
 
 	.required-inline () {
-
 		display: inline-table;
-
 	}
 
 	form {
 
 		&:hover {
-
 			.required {
-
 				.form-control,
 				input[type=radio],
-				input[type=checkbox]
-				{
-
-					&+ aside.ng-invalid {
-
+				input[type=checkbox] {
+					&+ aside.sg-form-badge {
 						opacity: 1;
-
 					}
-
 				}
-
 			}
-
 		}
 
 		&.ng-dirty {
-
 			.required {
-
 				.form-control,
 				input[type=radio],
-				input[type=checkbox]
-				{
-
-					&+ aside.ng-invalid {
-
+				input[type=checkbox] {
+					&+ aside.sg-form-badge {
 						background-color: @invalid-circle-red-background-color;
 						opacity: 1;
-
 					}
-
 				}
-
 			}
-
 		}
 
 		&.form-inline {
-
-			.radio,
-			.checkbox {
-
-				.required {
-
-					input[type=radio],
-					input[type=checkbox] {
-
-						&+ aside.ng-invalid {
-
-							right: -20px;
-
-						}
-
-					}
-
-
-				}
-
-			}
 
 			.required {
 
@@ -87,25 +49,16 @@ html > body {
 
 				.form-control,
 				input[type=radio],
-				input[type=checkbox]
-				{
-
-					&+ aside.ng-invalid {
-
-						right: 10px;
-
+				input[type=checkbox]  {
+					&+ aside.sg-form-badge {
+						right: @badge-offset - 5;
 					}
-
 				}
 
 				select.form-control {
-
-					&+ aside.ng-invalid {
-
-						right: 30px;
-
+					&+ aside.sg-form-badge {
+						right: @badge-offset + @badge-select-offset;
 					}
-
 				}
 				
 			}
@@ -113,78 +66,55 @@ html > body {
 		}
 
 		.radio,
-		.checkbox
-		{
+		.checkbox {
 			.required {
-
 				.required-inline();
 
+				input[type=radio],
+				input[type=checkbox] {
+					&+ aside.sg-form-badge {
+						right: @badge-checkbox-radio-offset;
+					}
+				}
 			}
 		}
 
 		.required {
-
 			position: relative;
 			display: block;
 
 			&.valid {
 
-				&[data-sg-tooltip] {
-
-					&:before {
-						display: none;
-					}
-
-					&:after {
-						content: "";
-						display: none;
-					}
-					
-				}
-
 				.form-control,
 				input[type=radio],
-				input[type=checkbox]
-				{
-					&+ aside.ng-invalid {
-
+				input[type=checkbox] {
+					&+ aside.sg-form-badge {
 						background-color: @invalid-circle-green-background-color;
 						opacity: 0;
-
 						-webkit-transition-delay: 500ms;
 						-moz-transition-delay: 500ms;
 						transition-delay: 500ms;
-
 					}
 				}
 
 			}
 
 			select.form-control {
-
-				&+ aside.ng-invalid {
-
-					&.inside {
-
-						right: 35px;
-
+				&+ aside.sg-form-badge {
+					&.sg-form-badge-outside {
+						// right: 25px;
 					}
-				
 				}
-
 			}
 
 			.form-control,
 			input[type=radio],
-			input[type=checkbox]
-			{
+			input[type=checkbox] {
 
-				&+ aside.ng-invalid {
+				&+ aside.sg-form-badge {
 
-					&.inside {
-
-						right: 15px;
-
+					&.sg-form-badge-outside {
+						right: -@badge-offset;
 					}
 
 					margin: 0;
@@ -192,7 +122,7 @@ html > body {
 					content: "";
 					position: absolute;
 					top: 50%;
-					right: -15px;
+					right: @badge-offset;
 					width: @invalid-circle-dimensions;
 					height: @invalid-circle-dimensions;
 					border-radius: 100px;
@@ -201,11 +131,9 @@ html > body {
 					margin-top: -(@invalid-circle-dimensions / 2);
 					opacity: 0;
 					z-index: 10;
-
 					-webkit-transition: opacity 200ms;
 					-moz-transition: opacity 200ms;
 					transition: opacity 200ms;
-
 				}
 
 			}

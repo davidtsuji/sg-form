@@ -12,12 +12,12 @@ $ component install davidtsuji/sg-form
 
 ### Markup
 
-Wrap inputs with an element that has a class **required**. Optionally place an &lt;aside class="ng-invalid"&gt;&lt;/aside&gt; directly after the input to show the invalid circle before the form is submitted.
+Wrap inputs with an element that has a class **required**. Optionally place an &lt;aside class="sg-form-badge"&gt;&lt;/aside&gt; directly after the input to show the invalid circle before the form is submitted.
 
 ```html
 <span class="required">
   <input type="text" name="firstName" required>
-  <aside ng-invalid></aside>
+  <aside class"sg-form-badge"></aside>
 </span>
 ```
 
@@ -26,7 +26,7 @@ To make the field valid the wrapper with the class **required** must also have t
 ```html
 <span class="required valid">
   <input type="text" name="firstName" required>
-  <aside ng-invalid></aside>
+  <aside class"sg-form-badge"></aside>
 </span>
 ```
 
@@ -35,7 +35,7 @@ The logic that makes this field valid is up to you. Below is an example of how t
 ```html
 <span class="required" ng-class="{valid: myForm.firstName.$valid}">
   <input type="text" name="firstName" required>
-  <aside ng-invalid></aside>
+  <aside class"sg-form-badge"></aside>
 </span>
 ```
 

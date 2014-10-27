@@ -1,14 +1,9 @@
 build:
-	@make install
-	@lessc sg-form/sg-form.less > sg-form/sg-form.css
-	@component build --dev
-	@component build --standalone sgForm --name sgForm --out demo
+	@npm install
+	@./node_modules/.bin/bower install
+	@./node_modules/.bin/gulp
 
-install:
-	@component install --dev > /dev/null
+clean:
+	@rm -rf bower_components node_modules dist
 
-demo:
-	@make build
-	@open demo/demo.html
-
-.PHONY: build install demo
+.PHONY: build

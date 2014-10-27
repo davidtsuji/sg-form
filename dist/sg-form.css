@@ -99,70 +99,60 @@
   -o-animation-name: shake;
   animation-name: shake;
 }
-html > body form:hover .required .form-control + aside.ng-invalid,
-html > body form:hover .required input[type=radio] + aside.ng-invalid,
-html > body form:hover .required input[type=checkbox] + aside.ng-invalid {
+html > body form:hover .required .form-control + aside.sg-form-badge,
+html > body form:hover .required input[type=radio] + aside.sg-form-badge,
+html > body form:hover .required input[type=checkbox] + aside.sg-form-badge {
   opacity: 1;
 }
-html > body form.ng-dirty .required .form-control + aside.ng-invalid,
-html > body form.ng-dirty .required input[type=radio] + aside.ng-invalid,
-html > body form.ng-dirty .required input[type=checkbox] + aside.ng-invalid {
+html > body form.ng-dirty .required .form-control + aside.sg-form-badge,
+html > body form.ng-dirty .required input[type=radio] + aside.sg-form-badge,
+html > body form.ng-dirty .required input[type=checkbox] + aside.sg-form-badge {
   background-color: #e74c3c;
   opacity: 1;
-}
-html > body form.form-inline .radio .required input[type=radio] + aside.ng-invalid,
-html > body form.form-inline .checkbox .required input[type=radio] + aside.ng-invalid,
-html > body form.form-inline .radio .required input[type=checkbox] + aside.ng-invalid,
-html > body form.form-inline .checkbox .required input[type=checkbox] + aside.ng-invalid {
-  right: -20px;
 }
 html > body form.form-inline .required {
   display: inline-table;
 }
-html > body form.form-inline .required .form-control + aside.ng-invalid,
-html > body form.form-inline .required input[type=radio] + aside.ng-invalid,
-html > body form.form-inline .required input[type=checkbox] + aside.ng-invalid {
-  right: 10px;
+html > body form.form-inline .required .form-control + aside.sg-form-badge,
+html > body form.form-inline .required input[type=radio] + aside.sg-form-badge,
+html > body form.form-inline .required input[type=checkbox] + aside.sg-form-badge {
+  right: 15px;
 }
-html > body form.form-inline .required select.form-control + aside.ng-invalid {
-  right: 30px;
+html > body form.form-inline .required select.form-control + aside.sg-form-badge {
+  right: 25px;
 }
 html > body form .radio .required,
 html > body form .checkbox .required {
   display: inline-table;
 }
+html > body form .radio .required input[type=radio] + aside.sg-form-badge,
+html > body form .checkbox .required input[type=radio] + aside.sg-form-badge,
+html > body form .radio .required input[type=checkbox] + aside.sg-form-badge,
+html > body form .checkbox .required input[type=checkbox] + aside.sg-form-badge {
+  right: -20px;
+}
 html > body form .required {
   position: relative;
   display: block;
 }
-html > body form .required.valid[data-sg-tooltip]:before {
-  display: none;
-}
-html > body form .required.valid[data-sg-tooltip]:after {
-  content: "";
-  display: none;
-}
-html > body form .required.valid .form-control + aside.ng-invalid,
-html > body form .required.valid input[type=radio] + aside.ng-invalid,
-html > body form .required.valid input[type=checkbox] + aside.ng-invalid {
+html > body form .required.valid .form-control + aside.sg-form-badge,
+html > body form .required.valid input[type=radio] + aside.sg-form-badge,
+html > body form .required.valid input[type=checkbox] + aside.sg-form-badge {
   background-color: #2ecc71;
   opacity: 0;
   -webkit-transition-delay: 500ms;
   -moz-transition-delay: 500ms;
   transition-delay: 500ms;
 }
-html > body form .required select.form-control + aside.ng-invalid.inside {
-  right: 35px;
-}
-html > body form .required .form-control + aside.ng-invalid,
-html > body form .required input[type=radio] + aside.ng-invalid,
-html > body form .required input[type=checkbox] + aside.ng-invalid {
+html > body form .required .form-control + aside.sg-form-badge,
+html > body form .required input[type=radio] + aside.sg-form-badge,
+html > body form .required input[type=checkbox] + aside.sg-form-badge {
   margin: 0;
   padding: 0;
   content: "";
   position: absolute;
   top: 50%;
-  right: -15px;
+  right: 20px;
   width: 10px;
   height: 10px;
   border-radius: 100px;
@@ -175,8 +165,8 @@ html > body form .required input[type=checkbox] + aside.ng-invalid {
   -moz-transition: opacity 200ms;
   transition: opacity 200ms;
 }
-html > body form .required .form-control + aside.ng-invalid.inside,
-html > body form .required input[type=radio] + aside.ng-invalid.inside,
-html > body form .required input[type=checkbox] + aside.ng-invalid.inside {
-  right: 15px;
+html > body form .required .form-control + aside.sg-form-badge.sg-form-badge-outside,
+html > body form .required input[type=radio] + aside.sg-form-badge.sg-form-badge-outside,
+html > body form .required input[type=checkbox] + aside.sg-form-badge.sg-form-badge-outside {
+  right: -20px;
 }
