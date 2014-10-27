@@ -5,7 +5,7 @@ Form validation
 ## Installation
 
 ```sh
-$ component install davidtsuji/sg-form
+bower install sg-form
 ```
 
 ## API
