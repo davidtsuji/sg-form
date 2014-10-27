@@ -17,7 +17,7 @@ Wrap inputs with an element that has a class **required**. Optionally place an &
 ```html
 <span class="required">
   <input type="text" name="firstName" required>
-  <aside class"sg-form-badge"></aside>
+  <aside class="sg-form-badge"></aside>
 </span>
 ```
 
