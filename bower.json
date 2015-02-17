@@ -1,6 +1,7 @@
 {
 	"name": "sg-form",
 	"version": "1.0.0",
+	"main": "src/scripts/index.js",
 	"homepage": "https://github.com/davidtsuji/sg-form",
 	"authors": [
 		"David Tsuji"
